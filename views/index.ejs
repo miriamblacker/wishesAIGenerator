@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishesAi generator</title>
+</head>
+
+<body>
+    <h1>Wellcome to wishes generator with AI</h1>
+    <form action="/prompts" method="post">
+        <label for="prompt-input">Enter a description for the greeting you are interested in</label>
+        <input type="text" name="prompt-input" placeholder="Start creating a wish">
+        <button type="submit">Generate</button>
+    </form>
+    <div id="output">
+        <% if(typeof response !=='undefined' ) { %>
+            <!-- <h1>Output:</h1>
+                <div class="prompt-container">
+                    <h2>Prompt 1:</h2>
+                    <br/>
+                    <pre class="prompt-text"><% response["1"] %></pre>
+                </div>
+                <div class="prompt-container">
+                    <h2>Prompt 2:</h2>
+                    <br/>
+                    <pre class="prompt-text"><% response["2"] %></pre>
+                </div>
+                <div class="prompt-container">
+                    <h2>Prompt 3:</h2>
+                    <br/>
+                    <pre class="prompt-text"><% response["3"] %></pre>
+                </div> -->
+            <h1>Output:</h1>
+            <% for (let i=1; i <=3; i++) { %>
+                <div class="prompt-container">
+                    <h2>Prompt <%= i %>:</h2>
+                    <br />
+                    <pre class="prompt-text"><%= response[i] %></pre>
+                </div>
+                <% } %>
+        <% } else if(typeof erorr !=='undefined' ){ %>
+                <p class="erorr-msg"> Erorr: <%= erorr %></p>
+         <% } %>
+    </div>
+    <footer>Created by Miriam Blachor m6111mb@gmail.com</footer>
+</body>
+
+</html>
